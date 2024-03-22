@@ -5,6 +5,7 @@ Description: A basic metabox plugin. Add an input field and checkbox field to th
 Version: 1.0
 Author: Akhil
 */
+
 function metabox_styles() {
     wp_enqueue_style('custom-metabox-styles', plugins_url('styles.css', __FILE__));
 }
