@@ -1,0 +1,10 @@
+.random-quote {
+    font-size: 18px;
+    font-weight: bolder;
+    color: #013C4C;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
