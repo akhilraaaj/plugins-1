@@ -13,12 +13,12 @@ add_action('wp_enqueue_scripts', 'metabox_styles');
 
 function metabox() {
     add_meta_box(
-        'metabox',  //id
-        'Metabox',  //title
-        'metabox_callback', //callback function
-        'page', //shows up on pages
-        'side', //placement of meta box
-        'high' //priority
+        'metabox',  // id
+        'Metabox',  // title
+        'metabox_callback', // callback function
+        'page', // shows up on pages
+        'side', // placement of meta box
+        'high' // priority
     );
 }   
 add_action('add_meta_boxes', 'metabox');
@@ -36,10 +36,10 @@ function metabox_callback($post) {
 
 // Save data
 function save_metabox_data($post_id) {
-    //checks if autosave is enabled or not 
+    // Checks if autosave is enabled or not 
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) 
         return;
-    //Checks if data exists or not
+    // Checks if data exists or not
     $input_data = isset($_POST['metabox_input']) ? sanitize_text_field($_POST['metabox_input']) : '';
     $checkbox_data = isset($_POST['metabox_checkbox']) ? 'on' : '';
     update_post_meta($post_id, 'metabox_input', $input_data);
