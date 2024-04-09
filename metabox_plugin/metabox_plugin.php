@@ -32,10 +32,15 @@ function metabox_callback($post) {
     <label for="metabox_checkbox">Display:</label>
     <input type="checkbox" id="metabox_checkbox" name="metabox_checkbox" <?php checked($checked, 'on'); ?>>
     <?php
+    wp_nonce_field('save_metabox_data', 'metabox_nonce');
 }
 
 // Save data
 function save_metabox_data($post_id) {
+    // Verify nonce
+    if (!isset($_POST['metabox_nonce']) || !wp_verify_nonce($_POST['metabox_nonce'], 'save_metabox_data')) {
+        return;
+    }
     // Checks if autosave is enabled or not 
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) 
         return;
